@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-search/google-cloud-batch/refs/heads/main/json-schema/batch-job.json",
+  "title": "Google Cloud Batch Job",
+  "description": "Represents a Batch job resource, including its task groups, allocation policy, status, and scheduling configuration.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The resource name of the job."
+    },
+    "uid": {
+      "type": "string",
+      "description": "A system generated unique ID for the job."
+    },
+    "priority": {
+      "type": "string",
+      "description": "Priority of the job. Higher values indicate higher priority."
+    },
+    "taskGroups": {
+      "type": "array",
+      "description": "Required. TaskGroups in the job.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "taskSpec": {
+            "type": "object",
+            "properties": {
+              "runnables": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "script": {
+                      "type": "object",
+                      "properties": {
+                        "text": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "container": {
+                      "type": "object",
+                      "properties": {
+                        "imageUri": {
+                          "type": "string"
+                        },
+                        "commands": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "maxRunDuration": {
+                "type": "string"
+              }
+            }
+          },
+          "taskCount": {
+            "type": "string"
+          },
+          "parallelism": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "allocationPolicy": {
+      "type": "object",
+      "description": "Compute resource allocation for the job.",
+      "properties": {
+        "location": {
+          "type": "object",
+          "properties": {
+            "allowedLocations": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "instances": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "policy": {
+                "type": "object",
+                "properties": {
+                  "machineType": {
+                    "type": "string"
+                  },
+                  "provisioningModel": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "status": {
+      "type": "object",
+      "description": "Current status of the job.",
+      "properties": {
+        "state": {
+          "type": "string",
+          "enum": [
+            "STATE_UNSPECIFIED",
+            "QUEUED",
+            "SCHEDULED",
+            "RUNNING",
+            "SUCCEEDED",
+            "FAILED",
+            "DELETION_IN_PROGRESS"
+          ]
+        },
+        "runDuration": {
+          "type": "string"
+        }
+      }
+    },
+    "createTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the job was created."
+    },
+    "updateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The last time the job was updated."
+    }
+  },
+  "required": ["taskGroups"]
+}

@@ -1,0 +1,48 @@
+name: Google Cloud Batch
+description: >-
+  Google Cloud Batch is a fully managed service for scheduling, queuing, and
+  executing batch processing workloads on Google Cloud compute resources. It
+  handles provisioning of resources, job queuing, and execution, enabling
+  large-scale data processing, scientific computing, and HPC workloads without
+  managing infrastructure.
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: >-
+  https://raw.githubusercontent.com/api-search/google-cloud-batch/refs/heads/main/apis.yml
+created: '2026-03-13'
+modified: '2026-03-13'
+specificationVersion: '0.18'
+tags:
+  - Google Cloud
+  - Batch Processing
+  - HPC
+  - Jobs
+  - Compute
+apis:
+  - name: Google Cloud Batch API
+    description: >-
+      The Batch API enables programmatic management of batch jobs on Google Cloud,
+      including creating, listing, and deleting jobs, monitoring task execution,
+      and configuring compute resource allocation for batch workloads.
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://cloud.google.com/batch/docs/reference/rest
+    baseURL: https://batch.googleapis.com
+    tags:
+      - Jobs
+      - Tasks
+      - Batch Processing
+      - Task Groups
+    properties:
+      - type: OpenAPI
+        url: openapi/batch-openapi.yml
+      - type: JSONSchema
+        url: json-schema/batch-job.json
+common:
+  - type: GettingStarted
+    url: https://cloud.google.com/batch/docs/get-started
+  - type: Pricing
+    url: https://cloud.google.com/batch/pricing
+  - type: JSON-LD
+    url: json-ld/batch-context.jsonld
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

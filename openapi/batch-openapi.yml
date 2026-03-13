@@ -1,0 +1,379 @@
+openapi: 3.1.0
+info:
+  title: Google Cloud Batch API
+  description: >-
+    Manages batch processing workloads on Google Cloud, including job creation,
+    scheduling, task execution, and resource provisioning.
+  version: 1.0.0
+  contact:
+    name: Google Cloud
+    url: https://cloud.google.com/batch
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+  - url: https://batch.googleapis.com/v1
+    description: Google Cloud Batch API v1
+tags:
+  - name: Jobs
+    description: Manage batch jobs
+  - name: Tasks
+    description: View tasks within a job
+paths:
+  /projects/{project}/locations/{location}/jobs:
+    get:
+      operationId: listJobs
+      summary: List Jobs
+      description: List all Jobs for a project within a given location.
+      tags:
+        - Jobs
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+        - name: pageToken
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  jobs:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Job'
+                  nextPageToken:
+                    type: string
+    post:
+      operationId: createJob
+      summary: Create Job
+      description: Create a Job.
+      tags:
+        - Jobs
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: jobId
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Job'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+  /projects/{project}/locations/{location}/jobs/{jobId}:
+    get:
+      operationId: getJob
+      summary: Get Job
+      description: Get a Job specified by its resource name.
+      tags:
+        - Jobs
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+    delete:
+      operationId: deleteJob
+      summary: Delete Job
+      description: Delete a Job.
+      tags:
+        - Jobs
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+  /projects/{project}/locations/{location}/jobs/{jobId}/taskGroups/{taskGroupId}/tasks:
+    get:
+      operationId: listTasks
+      summary: List Tasks
+      description: List Tasks associated with a job.
+      tags:
+        - Tasks
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: taskGroupId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  tasks:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Task'
+                  nextPageToken:
+                    type: string
+  /projects/{project}/locations/{location}/jobs/{jobId}/taskGroups/{taskGroupId}/tasks/{taskId}:
+    get:
+      operationId: getTask
+      summary: Get Task
+      description: Return a single Task.
+      tags:
+        - Tasks
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: taskGroupId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+components:
+  schemas:
+    Job:
+      type: object
+      properties:
+        name:
+          type: string
+        uid:
+          type: string
+        priority:
+          type: string
+        taskGroups:
+          type: array
+          items:
+            $ref: '#/components/schemas/TaskGroup'
+        allocationPolicy:
+          type: object
+          properties:
+            location:
+              type: object
+              properties:
+                allowedLocations:
+                  type: array
+                  items:
+                    type: string
+            instances:
+              type: array
+              items:
+                type: object
+                properties:
+                  policy:
+                    type: object
+                    properties:
+                      machineType:
+                        type: string
+                      provisioningModel:
+                        type: string
+        status:
+          type: object
+          properties:
+            state:
+              type: string
+              enum:
+                - STATE_UNSPECIFIED
+                - QUEUED
+                - SCHEDULED
+                - RUNNING
+                - SUCCEEDED
+                - FAILED
+                - DELETION_IN_PROGRESS
+            runDuration:
+              type: string
+        createTime:
+          type: string
+          format: date-time
+        updateTime:
+          type: string
+          format: date-time
+        logsPolicy:
+          type: object
+          properties:
+            destination:
+              type: string
+    TaskGroup:
+      type: object
+      properties:
+        name:
+          type: string
+        taskSpec:
+          type: object
+          properties:
+            runnables:
+              type: array
+              items:
+                type: object
+                properties:
+                  script:
+                    type: object
+                    properties:
+                      text:
+                        type: string
+                  container:
+                    type: object
+                    properties:
+                      imageUri:
+                        type: string
+                      commands:
+                        type: array
+                        items:
+                          type: string
+            maxRunDuration:
+              type: string
+        taskCount:
+          type: string
+        parallelism:
+          type: string
+    Task:
+      type: object
+      properties:
+        name:
+          type: string
+        status:
+          type: object
+          properties:
+            state:
+              type: string
+              enum:
+                - STATE_UNSPECIFIED
+                - PENDING
+                - ASSIGNED
+                - RUNNING
+                - FAILED
+                - SUCCEEDED
+    Operation:
+      type: object
+      properties:
+        name:
+          type: string
+        done:
+          type: boolean
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+            message:
+              type: string
+        response:
+          type: object
+        metadata:
+          type: object
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/cloud-platform: Full access to Google Cloud Platform
+security:
+  - oauth2:
+      - https://www.googleapis.com/auth/cloud-platform
