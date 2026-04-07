@@ -14,11 +14,11 @@ modified: '2026-03-16'
 specificationVersion: '0.19'
 type: Index
 tags:
-  - Google Cloud
   - Batch Processing
+  - Compute
+  - Google Cloud
   - HPC
   - Jobs
-  - Compute
 apis:
   - name: Google Cloud Batch API
     description: >-
@@ -29,10 +29,10 @@ apis:
     humanURL: https://cloud.google.com/batch/docs/reference/rest
     baseURL: https://batch.googleapis.com
     tags:
-      - Jobs
-      - Tasks
       - Batch Processing
+      - Jobs
       - Task Groups
+      - Tasks
     properties:
       - type: Documentation
         url: https://cloud.google.com/batch/docs/reference/rest
