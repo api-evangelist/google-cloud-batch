@@ -23,7 +23,7 @@ paths:
   /projects/{project}/locations/{location}/jobs:
     get:
       operationId: listJobs
-      summary: List Jobs
+      summary: Google Cloud Batch List Jobs
       description: List all Jobs for a project within a given location.
       tags:
         - Jobs
@@ -62,7 +62,7 @@ paths:
                     type: string
     post:
       operationId: createJob
-      summary: Create Job
+      summary: Google Cloud Batch Create Job
       description: Create a Job.
       tags:
         - Jobs
@@ -96,7 +96,7 @@ paths:
   /projects/{project}/locations/{location}/jobs/{jobId}:
     get:
       operationId: getJob
-      summary: Get Job
+      summary: Google Cloud Batch Get Job
       description: Get a Job specified by its resource name.
       tags:
         - Jobs
@@ -125,7 +125,7 @@ paths:
                 $ref: '#/components/schemas/Job'
     delete:
       operationId: deleteJob
-      summary: Delete Job
+      summary: Google Cloud Batch Delete Job
       description: Delete a Job.
       tags:
         - Jobs
@@ -155,7 +155,7 @@ paths:
   /projects/{project}/locations/{location}/jobs/{jobId}/taskGroups/{taskGroupId}/tasks:
     get:
       operationId: listTasks
-      summary: List Tasks
+      summary: Google Cloud Batch List Tasks
       description: List Tasks associated with a job.
       tags:
         - Tasks
@@ -197,7 +197,7 @@ paths:
   /projects/{project}/locations/{location}/jobs/{jobId}/taskGroups/{taskGroupId}/tasks/{taskId}:
     get:
       operationId: getTask
-      summary: Get Task
+      summary: Google Cloud Batch Get Task
       description: Return a single Task.
       tags:
         - Tasks
