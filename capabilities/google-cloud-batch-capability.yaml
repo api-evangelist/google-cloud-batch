@@ -1,0 +1,453 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Cloud Batch API
+  description: Manages batch processing workloads on Google Cloud, including job creation, scheduling, task execution, and
+    resource provisioning.
+  tags:
+  - Google
+  - Cloud
+  - Batch
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: google-cloud-batch
+    baseUri: https://batch.googleapis.com/v1
+    description: Google Cloud Batch API HTTP API.
+    authentication:
+      type: bearer
+      token: '{{GOOGLE_CLOUD_BATCH_TOKEN}}'
+    resources:
+    - name: projects-project-locations-location-jobs
+      path: /projects/{project}/locations/{location}/jobs
+      operations:
+      - name: listjobs
+        method: GET
+        description: Google Cloud Batch List Jobs
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: pageSize
+          in: query
+          type: integer
+        - name: pageToken
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createjob
+        method: POST
+        description: Google Cloud Batch Create Job
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: jobId
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-project-locations-location-jobs-jobid
+      path: /projects/{project}/locations/{location}/jobs/{jobId}
+      operations:
+      - name: getjob
+        method: GET
+        description: Google Cloud Batch Get Job
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: jobId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletejob
+        method: DELETE
+        description: Google Cloud Batch Delete Job
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: jobId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-project-locations-location-jobs-jobid-t
+      path: /projects/{project}/locations/{location}/jobs/{jobId}/taskGroups/{taskGroupId}/tasks
+      operations:
+      - name: listtasks
+        method: GET
+        description: Google Cloud Batch List Tasks
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: jobId
+          in: path
+          type: string
+          required: true
+        - name: taskGroupId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-project-locations-location-jobs-jobid-t
+      path: /projects/{project}/locations/{location}/jobs/{jobId}/taskGroups/{taskGroupId}/tasks/{taskId}
+      operations:
+      - name: gettask
+        method: GET
+        description: Google Cloud Batch Get Task
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: jobId
+          in: path
+          type: string
+          required: true
+        - name: taskGroupId
+          in: path
+          type: string
+          required: true
+        - name: taskId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: google-cloud-batch-rest
+    description: REST adapter for Google Cloud Batch API.
+    resources:
+    - path: /projects/{project}/locations/{location}/jobs
+      name: listjobs
+      operations:
+      - method: GET
+        name: listjobs
+        description: Google Cloud Batch List Jobs
+        call: google-cloud-batch.listjobs
+        with:
+          project: rest.project
+          location: rest.location
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{project}/locations/{location}/jobs
+      name: createjob
+      operations:
+      - method: POST
+        name: createjob
+        description: Google Cloud Batch Create Job
+        call: google-cloud-batch.createjob
+        with:
+          project: rest.project
+          location: rest.location
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{project}/locations/{location}/jobs/{jobId}
+      name: getjob
+      operations:
+      - method: GET
+        name: getjob
+        description: Google Cloud Batch Get Job
+        call: google-cloud-batch.getjob
+        with:
+          project: rest.project
+          location: rest.location
+          jobId: rest.jobId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{project}/locations/{location}/jobs/{jobId}
+      name: deletejob
+      operations:
+      - method: DELETE
+        name: deletejob
+        description: Google Cloud Batch Delete Job
+        call: google-cloud-batch.deletejob
+        with:
+          project: rest.project
+          location: rest.location
+          jobId: rest.jobId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{project}/locations/{location}/jobs/{jobId}/taskGroups/{taskGroupId}/tasks
+      name: listtasks
+      operations:
+      - method: GET
+        name: listtasks
+        description: Google Cloud Batch List Tasks
+        call: google-cloud-batch.listtasks
+        with:
+          project: rest.project
+          location: rest.location
+          jobId: rest.jobId
+          taskGroupId: rest.taskGroupId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{project}/locations/{location}/jobs/{jobId}/taskGroups/{taskGroupId}/tasks/{taskId}
+      name: gettask
+      operations:
+      - method: GET
+        name: gettask
+        description: Google Cloud Batch Get Task
+        call: google-cloud-batch.gettask
+        with:
+          project: rest.project
+          location: rest.location
+          jobId: rest.jobId
+          taskGroupId: rest.taskGroupId
+          taskId: rest.taskId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: google-cloud-batch-mcp
+    transport: http
+    description: MCP adapter for Google Cloud Batch API for AI agent use.
+    tools:
+    - name: listjobs
+      description: Google Cloud Batch List Jobs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-batch.listjobs
+      with:
+        project: tools.project
+        location: tools.location
+        pageSize: tools.pageSize
+        pageToken: tools.pageToken
+      inputParameters:
+      - name: project
+        type: string
+        description: project
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      - name: pageSize
+        type: integer
+        description: pageSize
+      - name: pageToken
+        type: string
+        description: pageToken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createjob
+      description: Google Cloud Batch Create Job
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-cloud-batch.createjob
+      with:
+        project: tools.project
+        location: tools.location
+        jobId: tools.jobId
+      inputParameters:
+      - name: project
+        type: string
+        description: project
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      - name: jobId
+        type: string
+        description: jobId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getjob
+      description: Google Cloud Batch Get Job
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-batch.getjob
+      with:
+        project: tools.project
+        location: tools.location
+        jobId: tools.jobId
+      inputParameters:
+      - name: project
+        type: string
+        description: project
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      - name: jobId
+        type: string
+        description: jobId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletejob
+      description: Google Cloud Batch Delete Job
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: google-cloud-batch.deletejob
+      with:
+        project: tools.project
+        location: tools.location
+        jobId: tools.jobId
+      inputParameters:
+      - name: project
+        type: string
+        description: project
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      - name: jobId
+        type: string
+        description: jobId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listtasks
+      description: Google Cloud Batch List Tasks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-batch.listtasks
+      with:
+        project: tools.project
+        location: tools.location
+        jobId: tools.jobId
+        taskGroupId: tools.taskGroupId
+      inputParameters:
+      - name: project
+        type: string
+        description: project
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      - name: jobId
+        type: string
+        description: jobId
+        required: true
+      - name: taskGroupId
+        type: string
+        description: taskGroupId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gettask
+      description: Google Cloud Batch Get Task
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-batch.gettask
+      with:
+        project: tools.project
+        location: tools.location
+        jobId: tools.jobId
+        taskGroupId: tools.taskGroupId
+        taskId: tools.taskId
+      inputParameters:
+      - name: project
+        type: string
+        description: project
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      - name: jobId
+        type: string
+        description: jobId
+        required: true
+      - name: taskGroupId
+        type: string
+        description: taskGroupId
+        required: true
+      - name: taskId
+        type: string
+        description: taskId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    GOOGLE_CLOUD_BATCH_TOKEN: GOOGLE_CLOUD_BATCH_TOKEN
