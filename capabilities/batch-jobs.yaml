@@ -1,0 +1,246 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Cloud Batch API — Jobs
+  description: 'Google Cloud Batch API — Jobs. 4 operations. Lead operation: Google Cloud Batch List Jobs. Self-contained
+    Naftiko capability covering one Google Cloud Batch business surface.'
+  tags:
+  - Google Cloud Batch
+  - Jobs
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_CLOUD_BATCH_API_KEY: GOOGLE_CLOUD_BATCH_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: batch-jobs
+    baseUri: https://batch.googleapis.com/v1
+    description: Google Cloud Batch API — Jobs business capability. Self-contained, no shared references.
+    resources:
+    - name: projects-project-locations-location-jobs
+      path: /projects/{project}/locations/{location}/jobs
+      operations:
+      - name: listjobs
+        method: GET
+        description: Google Cloud Batch List Jobs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: pageSize
+          in: query
+          type: integer
+        - name: pageToken
+          in: query
+          type: string
+      - name: createjob
+        method: POST
+        description: Google Cloud Batch Create Job
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: jobId
+          in: query
+          type: string
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: projects-project-locations-location-jobs-jobId
+      path: /projects/{project}/locations/{location}/jobs/{jobId}
+      operations:
+      - name: getjob
+        method: GET
+        description: Google Cloud Batch Get Job
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: jobId
+          in: path
+          type: string
+          required: true
+      - name: deletejob
+        method: DELETE
+        description: Google Cloud Batch Delete Job
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: jobId
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.GOOGLE_CLOUD_BATCH_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: batch-jobs-rest
+    port: 8080
+    description: REST adapter for Google Cloud Batch API — Jobs. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/projects/{project}/locations/{location}/jobs
+      name: projects-project-locations-location-jobs
+      description: REST surface for projects-project-locations-location-jobs.
+      operations:
+      - method: GET
+        name: listjobs
+        description: Google Cloud Batch List Jobs
+        call: batch-jobs.listjobs
+        with:
+          project: rest.project
+          location: rest.location
+          pageSize: rest.pageSize
+          pageToken: rest.pageToken
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createjob
+        description: Google Cloud Batch Create Job
+        call: batch-jobs.createjob
+        with:
+          project: rest.project
+          location: rest.location
+          jobId: rest.jobId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/projects/{project}/locations/{location}/jobs/{jobid}
+      name: projects-project-locations-location-jobs-jobid
+      description: REST surface for projects-project-locations-location-jobs-jobId.
+      operations:
+      - method: GET
+        name: getjob
+        description: Google Cloud Batch Get Job
+        call: batch-jobs.getjob
+        with:
+          project: rest.project
+          location: rest.location
+          jobId: rest.jobId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletejob
+        description: Google Cloud Batch Delete Job
+        call: batch-jobs.deletejob
+        with:
+          project: rest.project
+          location: rest.location
+          jobId: rest.jobId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: batch-jobs-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Cloud Batch API — Jobs. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: google-cloud-batch-list-jobs
+      description: Google Cloud Batch List Jobs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: batch-jobs.listjobs
+      with:
+        project: tools.project
+        location: tools.location
+        pageSize: tools.pageSize
+        pageToken: tools.pageToken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-cloud-batch-create-job
+      description: Google Cloud Batch Create Job
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: batch-jobs.createjob
+      with:
+        project: tools.project
+        location: tools.location
+        jobId: tools.jobId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-cloud-batch-get-job
+      description: Google Cloud Batch Get Job
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: batch-jobs.getjob
+      with:
+        project: tools.project
+        location: tools.location
+        jobId: tools.jobId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-cloud-batch-delete-job
+      description: Google Cloud Batch Delete Job
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: batch-jobs.deletejob
+      with:
+        project: tools.project
+        location: tools.location
+        jobId: tools.jobId
+      outputParameters:
+      - type: object
+        mapping: $.
