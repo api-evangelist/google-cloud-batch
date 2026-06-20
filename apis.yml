@@ -4,7 +4,7 @@ description: >-
   Google Cloud Batch is a fully managed service for scheduling, queuing, and executing batch processing workloads on
   Google Cloud compute resources. It handles provisioning of resources, job queuing, and execution, enabling large-scale
   data processing, scientific computing, and HPC workloads without managing infrastructure.
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-search/google-cloud-batch/refs/heads/main/apis.yml
 created: '2026-03-13'
 modified: '2026-05-19'
@@ -21,7 +21,7 @@ apis:
     description: >-
       The Batch API enables programmatic management of batch jobs on Google Cloud, including creating, listing, and
       deleting jobs, monitoring task execution, and configuring compute resource allocation for batch workloads.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://cloud.google.com/batch/docs/reference/rest
     baseURL: https://batch.googleapis.com
     tags:
