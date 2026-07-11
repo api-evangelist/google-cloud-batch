@@ -41,6 +41,12 @@ apis:
       - type: JSONSchema
         url: json-schema/batch-job.json
 common:
+  - type: VulnerabilityDisclosure
+    url: security/google-cloud-batch-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/google-cloud-batch-domain-security.yml
+  - type: Authentication
+    url: authentication/google-cloud-batch-authentication.yml
   - type: OAuthScopes
     url: scopes/google-cloud-batch-scopes.yml
   - type: GitHubOrganization
