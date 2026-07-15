@@ -41,6 +41,8 @@ apis:
       - type: JSONSchema
         url: json-schema/batch-job.json
 common:
+  - type: AgenticAccess
+    url: agentic-access/google-cloud-batch-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/google-cloud-batch-vulnerability-disclosure.yml
   - type: DomainSecurity
