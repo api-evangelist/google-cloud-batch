@@ -4,7 +4,20 @@ description: >-
   Google Cloud Batch is a fully managed service for scheduling, queuing, and executing batch processing workloads on
   Google Cloud compute resources. It handles provisioning of resources, job queuing, and execution, enabling large-scale
   data processing, scientific computing, and HPC workloads without managing infrastructure.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/google-cloud-batch.png
 url: https://raw.githubusercontent.com/api-search/google-cloud-batch/refs/heads/main/apis.yml
 created: '2026-03-13'
 modified: '2026-05-19'
@@ -17,30 +30,45 @@ tags:
   - HPC
   - Jobs
 apis:
-  - name: Google Cloud Batch API
-    description: >-
-      The Batch API enables programmatic management of batch jobs on Google Cloud, including creating, listing, and
-      deleting jobs, monitoring task execution, and configuring compute resource allocation for batch workloads.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://cloud.google.com/batch/docs/reference/rest
-    baseURL: https://batch.googleapis.com
-    tags:
-      - Batch Processing
-      - Jobs
-      - Task Groups
-      - Tasks
-    properties:
-      - type: Documentation
-        url: https://cloud.google.com/batch/docs/reference/rest
-      - type: OpenAPI
-        url: openapi/batch-openapi.yml
-      - type: Authentication
-        url: https://cloud.google.com/docs/authentication
-      - type: GettingStarted
-        url: https://cloud.google.com/batch/docs/get-started
-      - type: JSONSchema
-        url: json-schema/batch-job.json
+- aid: google-cloud-batch:google-cloud-batch-jobs-api
+  name: Google Cloud Batch Jobs API
+  description: Manage batch jobs
+  humanURL: https://cloud.google.com/batch/docs/reference/rest
+  baseURL: https://batch.googleapis.com
+  tags:
+  - Jobs
+  properties:
+  - type: OpenAPI
+    url: openapi/google-cloud-batch-jobs-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.google.com/batch/docs/reference/rest
+  - type: Authentication
+    url: https://cloud.google.com/docs/authentication
+  - type: GettingStarted
+    url: https://cloud.google.com/batch/docs/get-started
+  - type: JSONSchema
+    url: json-schema/batch-job.json
+- aid: google-cloud-batch:google-cloud-batch-tasks-api
+  name: Google Cloud Batch Tasks API
+  description: View tasks within a job
+  humanURL: https://cloud.google.com/batch/docs/reference/rest
+  baseURL: https://batch.googleapis.com
+  tags:
+  - Tasks
+  properties:
+  - type: OpenAPI
+    url: openapi/google-cloud-batch-tasks-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.google.com/batch/docs/reference/rest
+  - type: Authentication
+    url: https://cloud.google.com/docs/authentication
+  - type: GettingStarted
+    url: https://cloud.google.com/batch/docs/get-started
+  - type: JSONSchema
+    url: json-schema/batch-job.json
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/google-cloud-batch/overview
   - type: AgenticAccess
     url: agentic-access/google-cloud-batch-agentic-access.yml
   - type: VulnerabilityDisclosure
