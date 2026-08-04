@@ -1,0 +1,593 @@
+{
+  "info": {
+    "_postman_id": "f3329cdc-faa9-414a-ba65-eaed2e649e54",
+    "name": "Google Cloud Batch Jobs API",
+    "description": "Manages batch processing workloads on Google Cloud, including job creation, scheduling, task execution, and resource provisioning.\n\nContact Support:\n Name: Google Cloud",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:46:01.000Z",
+    "updatedAt": "2026-07-28T01:46:01.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f3329cdc-faa9-414a-ba65-eaed2e649e54"
+  },
+  "item": [
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "{project}",
+          "item": [
+            {
+              "name": "locations",
+              "item": [
+                {
+                  "name": "{location}",
+                  "item": [
+                    {
+                      "name": "jobs",
+                      "item": [
+                        {
+                          "name": "{jobId}",
+                          "item": [
+                            {
+                              "name": "Google Cloud Batch Get Job",
+                              "id": "ffbd51f8-20f1-4df4-826f-c7b082b77c2d",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:project/locations/:location/jobs/:jobId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":project",
+                                    "locations",
+                                    ":location",
+                                    "jobs",
+                                    ":jobId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "1a6e2463-d50d-4c81-b3b6-a3ec9486b66a",
+                                      "key": "project",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "3a2604d3-3684-442d-bae5-aa681c1bf561",
+                                      "key": "location",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "63bfd302-5e49-4e67-98f3-e84e5fb03ca6",
+                                      "key": "jobId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Get a Job specified by its resource name."
+                              },
+                              "response": [
+                                {
+                                  "id": "b2fb83bc-61e2-4e51-b227-e338c02519f8",
+                                  "name": "Successful response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:project/locations/:location/jobs/:jobId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":project",
+                                        "locations",
+                                        ":location",
+                                        "jobs",
+                                        ":jobId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "location"
+                                        },
+                                        {
+                                          "key": "jobId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"name\": \"<string>\",\n  \"uid\": \"<string>\",\n  \"priority\": \"<string>\",\n  \"taskGroups\": [\n    {\n      \"name\": \"<string>\",\n      \"taskSpec\": {\n        \"runnables\": [\n          {\n            \"script\": {\n              \"text\": \"<string>\"\n            },\n            \"container\": {\n              \"imageUri\": \"<string>\",\n              \"commands\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          },\n          {\n            \"script\": {\n              \"text\": \"<string>\"\n            },\n            \"container\": {\n              \"imageUri\": \"<string>\",\n              \"commands\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          }\n        ],\n        \"maxRunDuration\": \"<string>\"\n      },\n      \"taskCount\": \"<string>\",\n      \"parallelism\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"taskSpec\": {\n        \"runnables\": [\n          {\n            \"script\": {\n              \"text\": \"<string>\"\n            },\n            \"container\": {\n              \"imageUri\": \"<string>\",\n              \"commands\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          },\n          {\n            \"script\": {\n              \"text\": \"<string>\"\n            },\n            \"container\": {\n              \"imageUri\": \"<string>\",\n              \"commands\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          }\n        ],\n        \"maxRunDuration\": \"<string>\"\n      },\n      \"taskCount\": \"<string>\",\n      \"parallelism\": \"<string>\"\n    }\n  ],\n  \"allocationPolicy\": {\n    \"location\": {\n      \"allowedLocations\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"instances\": [\n      {\n        \"policy\": {\n          \"machineType\": \"<string>\",\n          \"provisioningModel\": \"<string>\"\n        }\n      },\n      {\n        \"policy\": {\n          \"machineType\": \"<string>\",\n          \"provisioningModel\": \"<string>\"\n        }\n      }\n    ]\n  },\n  \"status\": {\n    \"state\": \"SUCCEEDED\",\n    \"runDuration\": \"<string>\"\n  },\n  \"createTime\": \"<dateTime>\",\n  \"updateTime\": \"<dateTime>\",\n  \"logsPolicy\": {\n    \"destination\": \"<string>\"\n  }\n}",
+                                  "createdAt": "2026-07-28T01:46:02.000Z",
+                                  "updatedAt": "2026-07-28T01:46:02.000Z",
+                                  "uid": "35240-b2fb83bc-61e2-4e51-b227-e338c02519f8"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:46:02.000Z",
+                              "updatedAt": "2026-07-28T01:46:02.000Z",
+                              "uid": "35240-ffbd51f8-20f1-4df4-826f-c7b082b77c2d"
+                            },
+                            {
+                              "name": "Google Cloud Batch Delete Job",
+                              "id": "4057ba09-c4f3-4468-ad9f-a197b492c718",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:project/locations/:location/jobs/:jobId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":project",
+                                    "locations",
+                                    ":location",
+                                    "jobs",
+                                    ":jobId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "41400948-79c9-4175-9857-1e95d06038a4",
+                                      "key": "project",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "e5729ce9-927e-4e94-b0f4-2ed2db45eaa7",
+                                      "key": "location",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "0c795165-60b8-4549-aed6-5e31151debc4",
+                                      "key": "jobId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Delete a Job."
+                              },
+                              "response": [
+                                {
+                                  "id": "269439b9-90c9-4d5c-8cf9-b62212e814d5",
+                                  "name": "Successful response",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:project/locations/:location/jobs/:jobId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":project",
+                                        "locations",
+                                        ":location",
+                                        "jobs",
+                                        ":jobId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "location"
+                                        },
+                                        {
+                                          "key": "jobId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"name\": \"<string>\",\n  \"done\": \"<boolean>\",\n  \"error\": {\n    \"code\": \"<integer>\",\n    \"message\": \"<string>\"\n  },\n  \"response\": {},\n  \"metadata\": {}\n}",
+                                  "createdAt": "2026-07-28T01:46:02.000Z",
+                                  "updatedAt": "2026-07-28T01:46:02.000Z",
+                                  "uid": "35240-269439b9-90c9-4d5c-8cf9-b62212e814d5"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:46:02.000Z",
+                              "updatedAt": "2026-07-28T01:46:02.000Z",
+                              "uid": "35240-4057ba09-c4f3-4468-ad9f-a197b492c718"
+                            }
+                          ],
+                          "id": "f79703f3-ebb9-4dc5-8d55-baed8ec450b7",
+                          "createdAt": "2026-07-28T01:46:02.000Z",
+                          "updatedAt": "2026-07-28T01:46:02.000Z",
+                          "uid": "35240-f79703f3-ebb9-4dc5-8d55-baed8ec450b7"
+                        },
+                        {
+                          "name": "Google Cloud Batch List Jobs",
+                          "id": "390082b2-d644-4220-b33b-d5571e3e5311",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:project/locations/:location/jobs?pageSize=<integer>&pageToken=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":project",
+                                "locations",
+                                ":location",
+                                "jobs"
+                              ],
+                              "query": [
+                                {
+                                  "key": "pageSize",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "key": "pageToken",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "a8342a6b-7ebc-48e4-8d56-c14603a197e6",
+                                  "key": "project",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "eca887e5-a46d-43ea-a452-d6a60628245f",
+                                  "key": "location",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "List all Jobs for a project within a given location."
+                          },
+                          "response": [
+                            {
+                              "id": "f182b16b-a622-43d4-9e8a-f859fbd6b8df",
+                              "name": "Successful response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:project/locations/:location/jobs?pageSize=<integer>&pageToken=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":project",
+                                    "locations",
+                                    ":location",
+                                    "jobs"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "pageSize",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "pageToken",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "location"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"jobs\": [\n    {\n      \"name\": \"<string>\",\n      \"uid\": \"<string>\",\n      \"priority\": \"<string>\",\n      \"taskGroups\": [\n        {\n          \"name\": \"<string>\",\n          \"taskSpec\": {\n            \"runnables\": [\n              {\n                \"script\": {\n                  \"text\": \"<string>\"\n                },\n                \"container\": {\n                  \"imageUri\": \"<string>\",\n                  \"commands\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                }\n              },\n              {\n                \"script\": {\n                  \"text\": \"<string>\"\n                },\n                \"container\": {\n                  \"imageUri\": \"<string>\",\n                  \"commands\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                }\n              }\n            ],\n            \"maxRunDuration\": \"<string>\"\n          },\n          \"taskCount\": \"<string>\",\n          \"parallelism\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"taskSpec\": {\n            \"runnables\": [\n              {\n                \"script\": {\n                  \"text\": \"<string>\"\n                },\n                \"container\": {\n                  \"imageUri\": \"<string>\",\n                  \"commands\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                }\n              },\n              {\n                \"script\": {\n                  \"text\": \"<string>\"\n                },\n                \"container\": {\n                  \"imageUri\": \"<string>\",\n                  \"commands\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                }\n              }\n            ],\n            \"maxRunDuration\": \"<string>\"\n          },\n          \"taskCount\": \"<string>\",\n          \"parallelism\": \"<string>\"\n        }\n      ],\n      \"allocationPolicy\": {\n        \"location\": {\n          \"allowedLocations\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"instances\": [\n          {\n            \"policy\": {\n              \"machineType\": \"<string>\",\n              \"provisioningModel\": \"<string>\"\n            }\n          },\n          {\n            \"policy\": {\n              \"machineType\": \"<string>\",\n              \"provisioningModel\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"status\": {\n        \"state\": \"FAILED\",\n        \"runDuration\": \"<string>\"\n      },\n      \"createTime\": \"<dateTime>\",\n      \"updateTime\": \"<dateTime>\",\n      \"logsPolicy\": {\n        \"destination\": \"<string>\"\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"uid\": \"<string>\",\n      \"priority\": \"<string>\",\n      \"taskGroups\": [\n        {\n          \"name\": \"<string>\",\n          \"taskSpec\": {\n            \"runnables\": [\n              {\n                \"script\": {\n                  \"text\": \"<string>\"\n                },\n                \"container\": {\n                  \"imageUri\": \"<string>\",\n                  \"commands\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                }\n              },\n              {\n                \"script\": {\n                  \"text\": \"<string>\"\n                },\n                \"container\": {\n                  \"imageUri\": \"<string>\",\n                  \"commands\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                }\n              }\n            ],\n            \"maxRunDuration\": \"<string>\"\n          },\n          \"taskCount\": \"<string>\",\n          \"parallelism\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"taskSpec\": {\n            \"runnables\": [\n              {\n                \"script\": {\n                  \"text\": \"<string>\"\n                },\n                \"container\": {\n                  \"imageUri\": \"<string>\",\n                  \"commands\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                }\n              },\n              {\n                \"script\": {\n                  \"text\": \"<string>\"\n                },\n                \"container\": {\n                  \"imageUri\": \"<string>\",\n                  \"commands\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                }\n              }\n            ],\n            \"maxRunDuration\": \"<string>\"\n          },\n          \"taskCount\": \"<string>\",\n          \"parallelism\": \"<string>\"\n        }\n      ],\n      \"allocationPolicy\": {\n        \"location\": {\n          \"allowedLocations\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"instances\": [\n          {\n            \"policy\": {\n              \"machineType\": \"<string>\",\n              \"provisioningModel\": \"<string>\"\n            }\n          },\n          {\n            \"policy\": {\n              \"machineType\": \"<string>\",\n              \"provisioningModel\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"status\": {\n        \"state\": \"FAILED\",\n        \"runDuration\": \"<string>\"\n      },\n      \"createTime\": \"<dateTime>\",\n      \"updateTime\": \"<dateTime>\",\n      \"logsPolicy\": {\n        \"destination\": \"<string>\"\n      }\n    }\n  ],\n  \"nextPageToken\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:46:02.000Z",
+                              "updatedAt": "2026-07-28T01:46:02.000Z",
+                              "uid": "35240-f182b16b-a622-43d4-9e8a-f859fbd6b8df"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:46:02.000Z",
+                          "updatedAt": "2026-07-28T01:46:02.000Z",
+                          "uid": "35240-390082b2-d644-4220-b33b-d5571e3e5311"
+                        },
+                        {
+                          "name": "Google Cloud Batch Create Job",
+                          "id": "b71f459e-b6bb-4334-bb09-fb2a3b239a87",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"uid\": \"<string>\",\n  \"priority\": \"<string>\",\n  \"taskGroups\": [\n    {\n      \"name\": \"<string>\",\n      \"taskSpec\": {\n        \"runnables\": [\n          {\n            \"script\": {\n              \"text\": \"<string>\"\n            },\n            \"container\": {\n              \"imageUri\": \"<string>\",\n              \"commands\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          },\n          {\n            \"script\": {\n              \"text\": \"<string>\"\n            },\n            \"container\": {\n              \"imageUri\": \"<string>\",\n              \"commands\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          }\n        ],\n        \"maxRunDuration\": \"<string>\"\n      },\n      \"taskCount\": \"<string>\",\n      \"parallelism\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"taskSpec\": {\n        \"runnables\": [\n          {\n            \"script\": {\n              \"text\": \"<string>\"\n            },\n            \"container\": {\n              \"imageUri\": \"<string>\",\n              \"commands\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          },\n          {\n            \"script\": {\n              \"text\": \"<string>\"\n            },\n            \"container\": {\n              \"imageUri\": \"<string>\",\n              \"commands\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          }\n        ],\n        \"maxRunDuration\": \"<string>\"\n      },\n      \"taskCount\": \"<string>\",\n      \"parallelism\": \"<string>\"\n    }\n  ],\n  \"allocationPolicy\": {\n    \"location\": {\n      \"allowedLocations\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"instances\": [\n      {\n        \"policy\": {\n          \"machineType\": \"<string>\",\n          \"provisioningModel\": \"<string>\"\n        }\n      },\n      {\n        \"policy\": {\n          \"machineType\": \"<string>\",\n          \"provisioningModel\": \"<string>\"\n        }\n      }\n    ]\n  },\n  \"status\": {\n    \"state\": \"SUCCEEDED\",\n    \"runDuration\": \"<string>\"\n  },\n  \"createTime\": \"<dateTime>\",\n  \"updateTime\": \"<dateTime>\",\n  \"logsPolicy\": {\n    \"destination\": \"<string>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:project/locations/:location/jobs?jobId=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":project",
+                                "locations",
+                                ":location",
+                                "jobs"
+                              ],
+                              "query": [
+                                {
+                                  "key": "jobId",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "fb469b47-1e9e-44e6-a8b7-cb9ec6f0accc",
+                                  "key": "project",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "be72f322-5096-48ae-a017-45751bf4da2e",
+                                  "key": "location",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Create a Job."
+                          },
+                          "response": [
+                            {
+                              "id": "792da06d-6c20-45b5-bf83-3518373d320a",
+                              "name": "Successful response",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"uid\": \"<string>\",\n  \"priority\": \"<string>\",\n  \"taskGroups\": [\n    {\n      \"name\": \"<string>\",\n      \"taskSpec\": {\n        \"runnables\": [\n          {\n            \"script\": {\n              \"text\": \"<string>\"\n            },\n            \"container\": {\n              \"imageUri\": \"<string>\",\n              \"commands\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          },\n          {\n            \"script\": {\n              \"text\": \"<string>\"\n            },\n            \"container\": {\n              \"imageUri\": \"<string>\",\n              \"commands\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          }\n        ],\n        \"maxRunDuration\": \"<string>\"\n      },\n      \"taskCount\": \"<string>\",\n      \"parallelism\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"taskSpec\": {\n        \"runnables\": [\n          {\n            \"script\": {\n              \"text\": \"<string>\"\n            },\n            \"container\": {\n              \"imageUri\": \"<string>\",\n              \"commands\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          },\n          {\n            \"script\": {\n              \"text\": \"<string>\"\n            },\n            \"container\": {\n              \"imageUri\": \"<string>\",\n              \"commands\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          }\n        ],\n        \"maxRunDuration\": \"<string>\"\n      },\n      \"taskCount\": \"<string>\",\n      \"parallelism\": \"<string>\"\n    }\n  ],\n  \"allocationPolicy\": {\n    \"location\": {\n      \"allowedLocations\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"instances\": [\n      {\n        \"policy\": {\n          \"machineType\": \"<string>\",\n          \"provisioningModel\": \"<string>\"\n        }\n      },\n      {\n        \"policy\": {\n          \"machineType\": \"<string>\",\n          \"provisioningModel\": \"<string>\"\n        }\n      }\n    ]\n  },\n  \"status\": {\n    \"state\": \"SUCCEEDED\",\n    \"runDuration\": \"<string>\"\n  },\n  \"createTime\": \"<dateTime>\",\n  \"updateTime\": \"<dateTime>\",\n  \"logsPolicy\": {\n    \"destination\": \"<string>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:project/locations/:location/jobs?jobId=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":project",
+                                    "locations",
+                                    ":location",
+                                    "jobs"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "jobId",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "location"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"name\": \"<string>\",\n  \"uid\": \"<string>\",\n  \"priority\": \"<string>\",\n  \"taskGroups\": [\n    {\n      \"name\": \"<string>\",\n      \"taskSpec\": {\n        \"runnables\": [\n          {\n            \"script\": {\n              \"text\": \"<string>\"\n            },\n            \"container\": {\n              \"imageUri\": \"<string>\",\n              \"commands\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          },\n          {\n            \"script\": {\n              \"text\": \"<string>\"\n            },\n            \"container\": {\n              \"imageUri\": \"<string>\",\n              \"commands\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          }\n        ],\n        \"maxRunDuration\": \"<string>\"\n      },\n      \"taskCount\": \"<string>\",\n      \"parallelism\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"taskSpec\": {\n        \"runnables\": [\n          {\n            \"script\": {\n              \"text\": \"<string>\"\n            },\n            \"container\": {\n              \"imageUri\": \"<string>\",\n              \"commands\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          },\n          {\n            \"script\": {\n              \"text\": \"<string>\"\n            },\n            \"container\": {\n              \"imageUri\": \"<string>\",\n              \"commands\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          }\n        ],\n        \"maxRunDuration\": \"<string>\"\n      },\n      \"taskCount\": \"<string>\",\n      \"parallelism\": \"<string>\"\n    }\n  ],\n  \"allocationPolicy\": {\n    \"location\": {\n      \"allowedLocations\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"instances\": [\n      {\n        \"policy\": {\n          \"machineType\": \"<string>\",\n          \"provisioningModel\": \"<string>\"\n        }\n      },\n      {\n        \"policy\": {\n          \"machineType\": \"<string>\",\n          \"provisioningModel\": \"<string>\"\n        }\n      }\n    ]\n  },\n  \"status\": {\n    \"state\": \"SUCCEEDED\",\n    \"runDuration\": \"<string>\"\n  },\n  \"createTime\": \"<dateTime>\",\n  \"updateTime\": \"<dateTime>\",\n  \"logsPolicy\": {\n    \"destination\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:46:02.000Z",
+                              "updatedAt": "2026-07-28T01:46:02.000Z",
+                              "uid": "35240-792da06d-6c20-45b5-bf83-3518373d320a"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:46:02.000Z",
+                          "updatedAt": "2026-07-28T01:46:02.000Z",
+                          "uid": "35240-b71f459e-b6bb-4334-bb09-fb2a3b239a87"
+                        }
+                      ],
+                      "id": "888b676a-dfb0-480b-b48c-4cf34fa59be9",
+                      "createdAt": "2026-07-28T01:46:02.000Z",
+                      "updatedAt": "2026-07-28T01:46:02.000Z",
+                      "uid": "35240-888b676a-dfb0-480b-b48c-4cf34fa59be9"
+                    }
+                  ],
+                  "id": "11b46ae9-2ac8-4963-aa22-e048ce67f666",
+                  "createdAt": "2026-07-28T01:46:02.000Z",
+                  "updatedAt": "2026-07-28T01:46:02.000Z",
+                  "uid": "35240-11b46ae9-2ac8-4963-aa22-e048ce67f666"
+                }
+              ],
+              "id": "b7720125-0185-48ae-b701-ec5233bdc98e",
+              "createdAt": "2026-07-28T01:46:02.000Z",
+              "updatedAt": "2026-07-28T01:46:02.000Z",
+              "uid": "35240-b7720125-0185-48ae-b701-ec5233bdc98e"
+            }
+          ],
+          "id": "cf1b61ce-1127-4989-aa45-3a9601203148",
+          "createdAt": "2026-07-28T01:46:02.000Z",
+          "updatedAt": "2026-07-28T01:46:02.000Z",
+          "uid": "35240-cf1b61ce-1127-4989-aa45-3a9601203148"
+        }
+      ],
+      "id": "4f2cc374-71a3-4d55-b3b3-26a98d35f79f",
+      "createdAt": "2026-07-28T01:46:02.000Z",
+      "updatedAt": "2026-07-28T01:46:02.000Z",
+      "uid": "35240-4f2cc374-71a3-4d55-b3b3-26a98d35f79f"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/cloud-platform",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://batch.googleapis.com/v1"
+    }
+  ]
+}

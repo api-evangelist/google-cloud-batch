@@ -1,0 +1,16 @@
+{
+  "provider": "google-cloud-batch",
+  "sources": [
+    "google-cloud-batch-jobs-api-openapi.yml",
+    "google-cloud-batch-tasks-api-openapi.yml"
+  ],
+  "outputs": [
+    "google-cloud-batch-jobs-api-openapi.yml",
+    "google-cloud-batch-tasks-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

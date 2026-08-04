@@ -1,0 +1,404 @@
+{
+  "info": {
+    "_postman_id": "ba9b567c-2c95-4ae4-915d-c1628ecf629b",
+    "name": "Google Cloud Batch Jobs Tasks API",
+    "description": "Manages batch processing workloads on Google Cloud, including job creation, scheduling, task execution, and resource provisioning.\n\nContact Support:\n Name: Google Cloud",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:46:16.000Z",
+    "updatedAt": "2026-07-28T01:46:16.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ba9b567c-2c95-4ae4-915d-c1628ecf629b"
+  },
+  "item": [
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "{project}",
+          "item": [
+            {
+              "name": "locations",
+              "item": [
+                {
+                  "name": "{location}",
+                  "item": [
+                    {
+                      "name": "jobs",
+                      "item": [
+                        {
+                          "name": "{jobId}",
+                          "item": [
+                            {
+                              "name": "taskGroups",
+                              "item": [
+                                {
+                                  "name": "{taskGroupId}",
+                                  "item": [
+                                    {
+                                      "name": "tasks",
+                                      "item": [
+                                        {
+                                          "name": "{taskId}",
+                                          "item": [
+                                            {
+                                              "name": "Google Cloud Batch Get Task",
+                                              "id": "9da4ce44-7a14-478b-87d7-74c2f571d112",
+                                              "protocolProfileBehavior": {
+                                                "disableBodyPruning": true
+                                              },
+                                              "request": {
+                                                "method": "GET",
+                                                "header": [
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  }
+                                                ],
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/projects/:project/locations/:location/jobs/:jobId/taskGroups/:taskGroupId/tasks/:taskId",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "projects",
+                                                    ":project",
+                                                    "locations",
+                                                    ":location",
+                                                    "jobs",
+                                                    ":jobId",
+                                                    "taskGroups",
+                                                    ":taskGroupId",
+                                                    "tasks",
+                                                    ":taskId"
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "id": "6f1c07c2-e825-44d9-9428-6a6f53d3e8ec",
+                                                      "key": "project",
+                                                      "value": "<string>",
+                                                      "description": "(Required) "
+                                                    },
+                                                    {
+                                                      "id": "5255970a-0d73-4e54-9655-b1f36b55fd4d",
+                                                      "key": "location",
+                                                      "value": "<string>",
+                                                      "description": "(Required) "
+                                                    },
+                                                    {
+                                                      "id": "1849cebe-7ad3-4cab-9d87-2a377130de51",
+                                                      "key": "jobId",
+                                                      "value": "<string>",
+                                                      "description": "(Required) "
+                                                    },
+                                                    {
+                                                      "id": "391abfcc-f8a7-4602-8317-e57c519456af",
+                                                      "key": "taskGroupId",
+                                                      "value": "<string>",
+                                                      "description": "(Required) "
+                                                    },
+                                                    {
+                                                      "id": "43839258-d797-4339-ab98-fc1a326f5f97",
+                                                      "key": "taskId",
+                                                      "value": "<string>",
+                                                      "description": "(Required) "
+                                                    }
+                                                  ]
+                                                },
+                                                "description": "Return a single Task."
+                                              },
+                                              "response": [
+                                                {
+                                                  "id": "57dc66bc-eba2-44cd-8b32-fda2677adb5e",
+                                                  "name": "Successful response",
+                                                  "originalRequest": {
+                                                    "method": "GET",
+                                                    "header": [
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/projects/:project/locations/:location/jobs/:jobId/taskGroups/:taskGroupId/tasks/:taskId",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "projects",
+                                                        ":project",
+                                                        "locations",
+                                                        ":location",
+                                                        "jobs",
+                                                        ":jobId",
+                                                        "taskGroups",
+                                                        ":taskGroupId",
+                                                        "tasks",
+                                                        ":taskId"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "project"
+                                                        },
+                                                        {
+                                                          "key": "location"
+                                                        },
+                                                        {
+                                                          "key": "jobId"
+                                                        },
+                                                        {
+                                                          "key": "taskGroupId"
+                                                        },
+                                                        {
+                                                          "key": "taskId"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "OK",
+                                                  "code": 200,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "{\n  \"name\": \"<string>\",\n  \"status\": {\n    \"state\": \"RUNNING\"\n  }\n}",
+                                                  "createdAt": "2026-07-28T01:46:16.000Z",
+                                                  "updatedAt": "2026-07-28T01:46:16.000Z",
+                                                  "uid": "35240-57dc66bc-eba2-44cd-8b32-fda2677adb5e"
+                                                }
+                                              ],
+                                              "createdAt": "2026-07-28T01:46:16.000Z",
+                                              "updatedAt": "2026-07-28T01:46:16.000Z",
+                                              "uid": "35240-9da4ce44-7a14-478b-87d7-74c2f571d112"
+                                            }
+                                          ],
+                                          "id": "3874c44d-05d0-4c44-b182-c0672409562c",
+                                          "createdAt": "2026-07-28T01:46:16.000Z",
+                                          "updatedAt": "2026-07-28T01:46:16.000Z",
+                                          "uid": "35240-3874c44d-05d0-4c44-b182-c0672409562c"
+                                        },
+                                        {
+                                          "name": "Google Cloud Batch List Tasks",
+                                          "id": "5d5a9d29-3b25-4442-9ee3-23b0519a4f78",
+                                          "protocolProfileBehavior": {
+                                            "disableBodyPruning": true
+                                          },
+                                          "request": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/projects/:project/locations/:location/jobs/:jobId/taskGroups/:taskGroupId/tasks",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "projects",
+                                                ":project",
+                                                "locations",
+                                                ":location",
+                                                "jobs",
+                                                ":jobId",
+                                                "taskGroups",
+                                                ":taskGroupId",
+                                                "tasks"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "id": "9b044400-5fc0-4bbb-8545-27a82326f6ef",
+                                                  "key": "project",
+                                                  "value": "<string>",
+                                                  "description": "(Required) "
+                                                },
+                                                {
+                                                  "id": "7837c17d-034c-46f6-838e-c01c32736815",
+                                                  "key": "location",
+                                                  "value": "<string>",
+                                                  "description": "(Required) "
+                                                },
+                                                {
+                                                  "id": "41b9b749-b4eb-4583-ae5f-05d7648eb4a6",
+                                                  "key": "jobId",
+                                                  "value": "<string>",
+                                                  "description": "(Required) "
+                                                },
+                                                {
+                                                  "id": "7ca173de-a04e-47de-a3ba-83ea5c26bd66",
+                                                  "key": "taskGroupId",
+                                                  "value": "<string>",
+                                                  "description": "(Required) "
+                                                }
+                                              ]
+                                            },
+                                            "description": "List Tasks associated with a job."
+                                          },
+                                          "response": [
+                                            {
+                                              "id": "229cdf2e-f45e-477c-bf91-25b89dc02227",
+                                              "name": "Successful response",
+                                              "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  },
+                                                  {
+                                                    "description": "Added as a part of security scheme: oauth2",
+                                                    "key": "Authorization",
+                                                    "value": "<token>"
+                                                  }
+                                                ],
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/projects/:project/locations/:location/jobs/:jobId/taskGroups/:taskGroupId/tasks",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "projects",
+                                                    ":project",
+                                                    "locations",
+                                                    ":location",
+                                                    "jobs",
+                                                    ":jobId",
+                                                    "taskGroups",
+                                                    ":taskGroupId",
+                                                    "tasks"
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "key": "project"
+                                                    },
+                                                    {
+                                                      "key": "location"
+                                                    },
+                                                    {
+                                                      "key": "jobId"
+                                                    },
+                                                    {
+                                                      "key": "taskGroupId"
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              "status": "OK",
+                                              "code": 200,
+                                              "_postman_previewlanguage": "json",
+                                              "header": [
+                                                {
+                                                  "key": "Content-Type",
+                                                  "value": "application/json"
+                                                }
+                                              ],
+                                              "cookie": [],
+                                              "responseTime": null,
+                                              "body": "{\n  \"tasks\": [\n    {\n      \"name\": \"<string>\",\n      \"status\": {\n        \"state\": \"STATE_UNSPECIFIED\"\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"status\": {\n        \"state\": \"SUCCEEDED\"\n      }\n    }\n  ],\n  \"nextPageToken\": \"<string>\"\n}",
+                                              "createdAt": "2026-07-28T01:46:16.000Z",
+                                              "updatedAt": "2026-07-28T01:46:16.000Z",
+                                              "uid": "35240-229cdf2e-f45e-477c-bf91-25b89dc02227"
+                                            }
+                                          ],
+                                          "createdAt": "2026-07-28T01:46:16.000Z",
+                                          "updatedAt": "2026-07-28T01:46:16.000Z",
+                                          "uid": "35240-5d5a9d29-3b25-4442-9ee3-23b0519a4f78"
+                                        }
+                                      ],
+                                      "id": "60865c96-8f4a-4a4a-b63a-e94915826fd0",
+                                      "createdAt": "2026-07-28T01:46:16.000Z",
+                                      "updatedAt": "2026-07-28T01:46:16.000Z",
+                                      "uid": "35240-60865c96-8f4a-4a4a-b63a-e94915826fd0"
+                                    }
+                                  ],
+                                  "id": "afeb0951-565b-4968-9eda-bdd3e79a30af",
+                                  "createdAt": "2026-07-28T01:46:16.000Z",
+                                  "updatedAt": "2026-07-28T01:46:16.000Z",
+                                  "uid": "35240-afeb0951-565b-4968-9eda-bdd3e79a30af"
+                                }
+                              ],
+                              "id": "d86f470d-2c5a-4344-b2c9-25edb9a80b50",
+                              "createdAt": "2026-07-28T01:46:16.000Z",
+                              "updatedAt": "2026-07-28T01:46:16.000Z",
+                              "uid": "35240-d86f470d-2c5a-4344-b2c9-25edb9a80b50"
+                            }
+                          ],
+                          "id": "13caf7f7-7998-4f51-85fa-486c4c6af356",
+                          "createdAt": "2026-07-28T01:46:16.000Z",
+                          "updatedAt": "2026-07-28T01:46:16.000Z",
+                          "uid": "35240-13caf7f7-7998-4f51-85fa-486c4c6af356"
+                        }
+                      ],
+                      "id": "2c238725-b9ce-4dcf-8b7b-ae65f0736ddc",
+                      "createdAt": "2026-07-28T01:46:16.000Z",
+                      "updatedAt": "2026-07-28T01:46:16.000Z",
+                      "uid": "35240-2c238725-b9ce-4dcf-8b7b-ae65f0736ddc"
+                    }
+                  ],
+                  "id": "ae0714ff-3945-43a4-9e1b-3b4c438822b1",
+                  "createdAt": "2026-07-28T01:46:16.000Z",
+                  "updatedAt": "2026-07-28T01:46:16.000Z",
+                  "uid": "35240-ae0714ff-3945-43a4-9e1b-3b4c438822b1"
+                }
+              ],
+              "id": "e3dfa203-7877-48d5-bb02-8d2cfb213496",
+              "createdAt": "2026-07-28T01:46:16.000Z",
+              "updatedAt": "2026-07-28T01:46:16.000Z",
+              "uid": "35240-e3dfa203-7877-48d5-bb02-8d2cfb213496"
+            }
+          ],
+          "id": "099ff3bd-8063-47f8-a4c1-9c8fea3d34e9",
+          "createdAt": "2026-07-28T01:46:16.000Z",
+          "updatedAt": "2026-07-28T01:46:16.000Z",
+          "uid": "35240-099ff3bd-8063-47f8-a4c1-9c8fea3d34e9"
+        }
+      ],
+      "id": "0d5fb0ab-0b2c-44b7-a0f8-90de6794e083",
+      "createdAt": "2026-07-28T01:46:16.000Z",
+      "updatedAt": "2026-07-28T01:46:16.000Z",
+      "uid": "35240-0d5fb0ab-0b2c-44b7-a0f8-90de6794e083"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/cloud-platform",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://batch.googleapis.com/v1"
+    }
+  ]
+}
