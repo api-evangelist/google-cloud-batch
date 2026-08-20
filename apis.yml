@@ -28,6 +28,12 @@ tags:
   - Compute
   - Google Cloud
   - HPC
+  - Job
+tags_raw:
+  - Batch Processing
+  - Compute
+  - Google Cloud
+  - HPC
   - Jobs
 apis:
 - aid: google-cloud-batch:google-cloud-batch-jobs-api
@@ -36,6 +42,8 @@ apis:
   humanURL: https://cloud.google.com/batch/docs/reference/rest
   baseURL: https://batch.googleapis.com
   tags:
+  - Job
+  tags_raw:
   - Jobs
   properties:
   - type: OpenAPI
@@ -54,6 +62,8 @@ apis:
   humanURL: https://cloud.google.com/batch/docs/reference/rest
   baseURL: https://batch.googleapis.com
   tags:
+  - Task
+  tags_raw:
   - Tasks
   properties:
   - type: OpenAPI
