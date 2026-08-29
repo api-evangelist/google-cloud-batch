@@ -4,6 +4,18 @@ description: >-
   Google Cloud Batch is a fully managed service for scheduling, queuing, and executing batch processing workloads on
   Google Cloud compute resources. It handles provisioning of resources, job queuing, and execution, enabling large-scale
   data processing, scientific computing, and HPC workloads without managing infrastructure.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
