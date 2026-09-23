@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Google Cloud Batch Jobs Tasks API
+  title: Google Cloud Batch Tasks API
   description: Manages batch processing workloads on Google Cloud, including job creation, scheduling, task execution, and resource provisioning.
   version: 1.0.0
   contact:

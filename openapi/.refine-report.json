@@ -1,8 +1,7 @@
 {
   "provider": "google-cloud-batch",
   "sources": [
-    "google-cloud-batch-jobs-api-openapi.yml",
-    "google-cloud-batch-tasks-api-openapi.yml"
+    "_original/batch-openapi.yml"
   ],
   "outputs": [
     "google-cloud-batch-jobs-api-openapi.yml",
@@ -12,9 +11,12 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "google-cloud-batch-jobs-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "google-cloud-batch-tasks-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "batch-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "google-cloud-batch-jobs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "google-cloud-batch-tasks-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
