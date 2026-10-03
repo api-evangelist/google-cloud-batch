@@ -153,57 +153,6 @@ paths:
                 $ref: '#/components/schemas/Operation'
 components:
   schemas:
-    TaskGroup:
-      type: object
-      properties:
-        name:
-          type: string
-        taskSpec:
-          type: object
-          properties:
-            runnables:
-              type: array
-              items:
-                type: object
-                properties:
-                  script:
-                    type: object
-                    properties:
-                      text:
-                        type: string
-                  container:
-                    type: object
-                    properties:
-                      imageUri:
-                        type: string
-                      commands:
-                        type: array
-                        items:
-                          type: string
-            maxRunDuration:
-              type: string
-        taskCount:
-          type: string
-        parallelism:
-          type: string
-    Operation:
-      type: object
-      properties:
-        name:
-          type: string
-        done:
-          type: boolean
-        error:
-          type: object
-          properties:
-            code:
-              type: integer
-            message:
-              type: string
-        response:
-          type: object
-        metadata:
-          type: object
     Job:
       type: object
       properties:
@@ -265,6 +214,57 @@ components:
           properties:
             destination:
               type: string
+    Operation:
+      type: object
+      properties:
+        name:
+          type: string
+        done:
+          type: boolean
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+            message:
+              type: string
+        response:
+          type: object
+        metadata:
+          type: object
+    TaskGroup:
+      type: object
+      properties:
+        name:
+          type: string
+        taskSpec:
+          type: object
+          properties:
+            runnables:
+              type: array
+              items:
+                type: object
+                properties:
+                  script:
+                    type: object
+                    properties:
+                      text:
+                        type: string
+                  container:
+                    type: object
+                    properties:
+                      imageUri:
+                        type: string
+                      commands:
+                        type: array
+                        items:
+                          type: string
+            maxRunDuration:
+              type: string
+        taskCount:
+          type: string
+        parallelism:
+          type: string
   securitySchemes:
     oauth2:
       type: oauth2
