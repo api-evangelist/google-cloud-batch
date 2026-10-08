@@ -89,6 +89,12 @@ apis:
   - type: JSONSchema
     url: json-schema/batch-job.json
 common:
+  - type: Plans
+    url: plans/google-cloud-batch-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/google-cloud-batch-rate-limits.yml
+  - type: FinOps
+    url: finops/google-cloud-batch-finops.yml
   - type: CapabilityMap
     url: capabilities/google-cloud-batch-capability-edges.yml
     name: Google Cloud Batch Business Capability Map
